@@ -1,0 +1,65 @@
+@startuml
+
+actor User
+entity "API" as API
+entity "Business Logic Layer" as BL
+entity "Persistence Layer" as DB
+
+User -> API : User registration request (POST /register)
+API -> BL : Validate user data
+BL -> DB : Check if user exists
+DB -> BL : Return user existence status
+BL -> DB : Save new user
+DB -> BL : Return save status
+BL -> API : Send registration response (success or error)
+API -> User : Send registration response (success or error)
+
+@enduml
+
+@startuml
+
+actor User
+entity "API" as API
+entity "Business Logic Layer" as BL
+entity "Persistence Layer" as DB
+
+User -> API : Place creation request (POST /places)
+API -> BL : Validate place data
+BL -> DB : Save place details
+DB -> BL : Return save status
+BL -> API : Send place creation response (success or error)
+API -> User : Send place creation response (success or error)
+
+@enduml
+
+@startuml
+
+actor User
+entity "API" as API
+entity "Business Logic Layer" as BL
+entity "Persistence Layer" as DB
+
+User -> API : Review submission request (POST /reviews)
+API -> BL : Validate review data
+BL -> DB : Save review
+DB -> BL : Return save status
+BL -> API : Send review submission response (success or error)
+API -> User : Send review submission response (success or error)
+
+@enduml
+
+@startuml
+
+actor User
+entity "API" as API
+entity "Business Logic Layer" as BL
+entity "Persistence Layer" as DB
+
+User -> API : Fetch places request (GET /places)
+API -> BL : Fetch places with filter
+BL -> DB : Retrieve places based on filter
+DB -> BL : Return list of places
+BL -> API : Send places list response
+API -> User : Send places list response
+
+@enduml
