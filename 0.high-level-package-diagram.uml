@@ -1,0 +1,57 @@
+@startuml
+
+package "Presentation Layer" {
+    [UserService]  
+    [PlaceService]  
+    [ReviewService]  
+    [AmenityService]  
+    [UserAPI]  
+    [PlaceAPI]  
+    [ReviewAPI]  
+    [AmenityAPI]
+}
+
+package "Business Logic Layer" {
+    [User]  
+    [Place]  
+    [Review]  
+    [Amenity]  
+    [UserFacade]  
+    [PlaceFacade]  
+    [ReviewFacade]  
+    [AmenityFacade]  
+}
+
+package "Persistence Layer" {
+    [UserRepository]  
+    [PlaceRepository]  
+    [ReviewRepository]  
+    [AmenityRepository]  
+    [Database]
+}
+
+' Communication between layers using facade
+[UserService] -down-> [UserFacade] : Uses
+[PlaceService] -down-> [PlaceFacade] : Uses
+[ReviewService] -down-> [ReviewFacade] : Uses
+[AmenityService] -down-> [AmenityFacade] : Uses
+
+' Business Logic Layer to Persistence Layer interaction
+[UserFacade] -down-> [UserRepository] : Uses
+[PlaceFacade] -down-> [PlaceRepository] : Uses
+[ReviewFacade] -down-> [ReviewRepository] : Uses
+[AmenityFacade] -down-> [AmenityRepository] : Uses
+
+' Persistence to Database interaction
+[UserRepository] -down-> [Database] : Reads/Writes
+[PlaceRepository] -down-> [Database] : Reads/Writes
+[ReviewRepository] -down-> [Database] : Reads/Writes
+[AmenityRepository] -down-> [Database] : Reads/Writes
+
+' API layer interacts with Service layer
+[UserAPI] --> [UserService] : Calls
+[PlaceAPI] --> [PlaceService] : Calls
+[ReviewAPI] --> [ReviewService] : Calls
+[AmenityAPI] --> [AmenityService] : Calls
+
+@enduml
