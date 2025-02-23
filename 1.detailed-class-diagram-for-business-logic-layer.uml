@@ -1,0 +1,65 @@
+@startuml
+!define Table(name) class name << (T,#FFAAAA) >>
+!define Entity(name) class name << (E,#FFCC99) >>
+
+' Entities
+Entity(User) {
+    - UUID: String
+    - name: String
+    - email: String
+    - password: String
+    - creationDate: Date
+    - updateDate: Date
+    + register(): void
+    + login(): boolean
+    + updateProfile(): void
+}
+
+Entity(Place) {
+    - UUID: String
+    - title: String
+    - description: String
+    - location: String
+    - price: double
+    - creationDate: Date
+    - updateDate: Date
+    + createPlace(): void
+    + updatePlace(): void
+    + deletePlace(): void
+    + searchPlace(): List<Place>
+}
+
+Entity(Review) {
+    - UUID: String
+    - userId: String
+    - placeId: String
+    - rating: int
+    - comment: String
+    - creationDate: Date
+    + addReview(): void
+    + updateReview(): void
+    + deleteReview(): void
+}
+
+Entity(Amenity) {
+    - UUID: String
+    - type: String
+    - description: String
+    + addAmenity(): void
+    + updateAmenity(): void
+    + removeAmenity(): void
+}
+
+' Relationships
+User "1" -- "0..*" Review : writes >
+Place "1" -- "0..*" Review : receives >
+Place "1" -- "0..*" Amenity : includes >
+
+' Inheritance (for User roles, for example)
+class Admin {
+    + createPlace(): void
+    + deletePlace(): void
+}
+User <|-- Admin : is a
+
+@enduml
