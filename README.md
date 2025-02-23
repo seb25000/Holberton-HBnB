@@ -1,10 +1,11 @@
-![Task_1_Diagramme_Class](https://github.com/user-attachments/assets/9121e3bf-561e-4dea-9b11-8d41c784c26f)# Holberton-HBnB
 HBnB, Diagramme de package, task 0 : 
 
 
 0. High-Level Package Diagram :
 
+
 ![hbnb_diagramme_package_projet_1_task_0](https://github.com/user-attachments/assets/e90c3d18-4c77-4c8e-9458-d872cc253a36)
+
 
 
 ![Task_0_Diagramme_Package](https://github.com/user-attachments/assets/fa0a2097-ce0f-43b2-9eca-ad020cfde82f)
@@ -13,16 +14,20 @@ HBnB, Diagramme de package, task 0 :
 
 1. Detailed Class Diagram for Business Logic Layer :
 
+
 ![Task_1_Diagramme_Class](https://github.com/user-attachments/assets/378e9ea2-0326-453e-814f-45b54e7b4379)
 
 
 
 2. Sequence Diagrams for API Calls :
 
+
 ![Task_2_Diagramme_Sequence](https://github.com/user-attachments/assets/32c6d4e8-b666-4014-a709-46a054e21309)
 
 
+
 3. Documentation Compilation :
+
 
 @startuml
 
